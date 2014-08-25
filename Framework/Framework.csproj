@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17F0D615-3E3C-4577-91CB-64B2BA50BD2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Framework</RootNamespace>
+    <AssemblyName>Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="sfmlnet-audio-2">
+      <HintPath>Libs\sfmlnet-audio-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-graphics-2">
+      <HintPath>Libs\sfmlnet-graphics-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-window-2">
+      <HintPath>Libs\sfmlnet-window-2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\AudioSystem.cs" />
+    <Compile Include="Core\Application.cs" />
+    <Compile Include="Core\ApplicationSettings.cs" />
+    <Compile Include="Core\Assets.cs" />
+    <Compile Include="Input\InputListener.cs" />
+    <Compile Include="Core\Game.cs" />
+    <Compile Include="Core\GameState.cs" />
+    <Compile Include="Core\StateBasedGame.cs" />
+    <Compile Include="Core\TimeStepper.cs" />
+    <Compile Include="Debug\Array2DImager.cs" />
+    <Compile Include="Debug\Profiler.cs" />
+    <Compile Include="Debug\ProfilerSample.cs" />
+    <Compile Include="Graphics\LineBatch.cs" />
+    <Compile Include="Graphics\Material.cs" />
+    <Compile Include="Graphics\SpriteBatch.cs" />
+    <Compile Include="Graphics\Tilemap.cs" />
+    <Compile Include="Pcg\LightningSimulator.cs" />
+    <Compile Include="Pcg\Noise.cs" />
+    <Compile Include="Pcg\ParticleSimulator.cs" />
+    <Compile Include="Pcg\Tiler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scene\Audio\AudioListener.cs" />
+    <Compile Include="Scene\Behaviours\CameraHandler.cs" />
+    <Compile Include="Scene\Behaviours\SpriteOrderFromY.cs" />
+    <Compile Include="Scene\Graphics\Camera.cs" />
+    <Compile Include="Scene\Graphics\ParticleRenderer.cs" />
+    <Compile Include="Scene\Graphics\RenderMode.cs" />
+    <Compile Include="Scene\Graphics\RenderSystem.cs" />
+    <Compile Include="Scene\Graphics\SpriteBatchRenderer.cs" />
+    <Compile Include="Scene\Gui\GuiComponent.cs" />
+    <Compile Include="Scene\Physics\Collider.cs" />
+    <Compile Include="Scene\Physics\MapCollider.cs" />
+    <Compile Include="Scene\Graphics\Renderer.cs" />
+    <Compile Include="Scene\Graphics\SpriteRenderer.cs" />
+    <Compile Include="Util\Array2D.cs" />
+    <Compile Include="Util\Bits.cs" />
+    <Compile Include="Util\ColorExtensions.cs" />
+    <Compile Include="Util\DebugOverlay.cs" />
+    <Compile Include="Util\DebugStat.cs" />
+    <Compile Include="Util\Dir.cs" />
+    <Compile Include="Util\GridRayCaster.cs" />
+    <Compile Include="Util\Log.cs" />
+    <Compile Include="Util\Mathf.cs" />
+    <Compile Include="Pcg\MazeGenerator.cs" />
+    <Compile Include="Util\PathFinder.cs" />
+    <Compile Include="Util\PriorityQueueB.cs" />
+    <Compile Include="Util\Random.cs" />
+    <Compile Include="Util\FloatRange.cs" />
+    <Compile Include="Util\SampledCurve.cs" />
+    <Compile Include="Util\Vector2fExtensions.cs" />
+    <Compile Include="Scene\Behaviours\Behaviour.cs" />
+    <Compile Include="Scene\Component.cs" />
+    <Compile Include="Scene\Audio\AudioEmitter.cs" />
+    <Compile Include="Scene\Physics\BasicBody.cs" />
+    <Compile Include="Scene\Behaviours\FootstepsSound.cs" />
+    <Compile Include="Scene\Graphics\Light.cs" />
+    <Compile Include="Scene\Graphics\MapRenderer.cs" />
+    <Compile Include="Scene\Entity.cs" />
+    <Compile Include="Scene\EntityList.cs" />
+    <Compile Include="Scene\Graphics\LightSystem.cs" />
+    <Compile Include="Scene\Physics\PhysicsSystem.cs" />
+    <Compile Include="Scene\Behaviours\StateBehaviour.cs" />
+    <Compile Include="Scene\World.cs" />
+    <Compile Include="Util\Vector2iExtensions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

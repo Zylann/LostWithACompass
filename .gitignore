@@ -1,0 +1,8 @@
+obj/
+bin/
+debug_data/
+
+*.pdb
+*.exe
+*.suo
+*.user
