@@ -46,7 +46,7 @@ namespace LD30
 				+ "Then you got lost.\n";
 			_text = new Text("", Game.font);
 			_text.Position = new Vector2f(16, 100);
-			_text.CharacterSize = 12;
+			_text.CharacterSize = 8;
 			_text.Color = new Color(128, 128, 128);
 
 			_me = new Text("A game by Marc Gilleron @ZylannMP3\nFor Ludum Dare 30 compo #ld48\n"+Application.instance.version, Game.font);
