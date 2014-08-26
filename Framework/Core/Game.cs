@@ -27,6 +27,9 @@ namespace Framework
 
 		public abstract void OnKeyPressed(KeyEventArgs e);
 
+		public abstract void OnMouseButtonPressed(MouseButtonEventArgs e);
+		public abstract void OnMouseButtonReleased(MouseButtonEventArgs e);
+
 	}
 }
 

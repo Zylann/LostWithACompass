@@ -1,9 +1,6 @@
 ﻿using Framework;
+using SFML.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LD30
 {
@@ -22,6 +19,8 @@ namespace LD30
             LD30.Game game = new LD30.Game();
 
             Application app = new Application(game);
+			app.version = new AppVersion(AppVersion.Stage.ALPHA, 1, 1);
+			app.clearColor = Color.Black;
             app.Start();
             //}
             //catch(Exception e)

@@ -1,11 +1,6 @@
 ﻿using Framework;
 using SFML.Graphics;
 using SFML.Window;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LD30
 {
@@ -22,6 +17,8 @@ namespace LD30
 
 		private Game _game;
 
+		private float _titleAlpha = 0;
+
 		public MenuState(Game g)
 		{
 			_game = g;
@@ -31,8 +28,8 @@ namespace LD30
 		{
 			_title = new Text("LOST\nWITH A COMPASS", Game.font);
 			_title.Position = new Vector2f(8, 4);
-			_title.CharacterSize = 24;
-			_title.Color = new Color(255, 128, 0);
+			_title.CharacterSize = 32;
+			_title.Color = new Color(64, 128, 0);
 
 			// YOU SEE THE HACK ?
 			// DIIIIIIIIIIRTY
@@ -47,39 +44,60 @@ namespace LD30
 				+ "You came here to verify what's wrong.                                                         \n"
 				+ "                                                                     \n"
 				+ "Then you got lost.\n";
-			_text = new Text("_", Game.font);
-			_text.Position = new Vector2f(16, 80);
-			_text.CharacterSize = 8;
+			_text = new Text("", Game.font);
+			_text.Position = new Vector2f(16, 100);
+			_text.CharacterSize = 12;
 			_text.Color = new Color(128, 128, 128);
 
-			_me = new Text("A game by Marc Gilleron @ZylannMP3 // For Ludum Dare 30 compo #ld48\nAlpha version 1.0", Game.font);
-			_me.Color = new Color(128, 64, 0);
-			_me.CharacterSize = 8;
+			_me = new Text("A game by Marc Gilleron @ZylannMP3\nFor Ludum Dare 30 compo #ld48\n"+Application.instance.version, Game.font);
+			_me.Color = new Color(64, 128, 0);
+			_me.CharacterSize = 16;
+		}
+
+		public override void OnUpdate(int delta)
+		{
+			_ticks++;
+			if (_ticks % 2 == 0)
+			{
+				_displayIndex++;
+				if (_displayIndex > _introText.Length)
+				{
+					_displayIndex = _introText.Length;
+					_titleAlpha = System.Math.Min(_titleAlpha + (float)delta / 2000f, 1f);
+				}
+				else
+					_text.DisplayedString += _introText[_displayIndex - 1];
+			}
 		}
 
 		public override void OnRender(RenderTarget rt)
 		{
 			//rt.Clear(Color.Black);
 
-			_ticks++;
-			if(_ticks%2==0)
-			{
-				_displayIndex++;
-				if (_displayIndex > _introText.Length)
-					_displayIndex = _introText.Length;
-				else
-					_text.DisplayedString += _introText[_displayIndex - 1];
-			}
+			_title.Color = new Color(_title.Color.R, _title.Color.G, _title.Color.B, (byte)(255f * _titleAlpha));
+			_me.Color = new Color(_me.Color.R, _me.Color.G, _me.Color.B, (byte)(255f * _titleAlpha));
 
 			rt.Draw(_title);
 			rt.Draw(_text);
 
-			_me.Position = new Vector2f(4, Application.instance.ScreenSize.Y - 25);
+			_me.Position = new Vector2f(16, Application.instance.ScreenSize.Y - 70);
 			rt.Draw(_me);
 
-			if(_ticks > 200 && Mouse.IsButtonPressed(Mouse.Button.Left))
+		}
+
+		public override void OnMouseButtonPressed(MouseButtonEventArgs e)
+		{
+			if (_ticks > 80 && Mouse.IsButtonPressed(Mouse.Button.Left))
 			{
-				_game.EnterState(_game.playState);
+				if(_displayIndex < _introText.Length)
+				{
+					_displayIndex = _introText.Length;
+					_text.DisplayedString = _introText;
+				}
+				else
+				{
+					_game.EnterState(_game.playState);
+				}
 			}
 		}
 

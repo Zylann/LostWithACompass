@@ -50,6 +50,16 @@ namespace Framework
 		{
 			_currentState.OnKeyPressed(e);
 		}
+
+		public override void OnMouseButtonPressed(MouseButtonEventArgs e)
+		{
+			_currentState.OnMouseButtonPressed(e);
+		}
+
+		public override void OnMouseButtonReleased(MouseButtonEventArgs e)
+		{
+			_currentState.OnMouseButtonReleased(e);
+		}
 	}
 }
 

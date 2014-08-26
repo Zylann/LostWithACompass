@@ -4,8 +4,6 @@ using SFML.Audio;
 using SFML.Graphics;
 using SFML.Window;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LD30
 {

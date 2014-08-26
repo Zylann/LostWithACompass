@@ -104,6 +104,7 @@
     <Compile Include="Scene\Physics\MapCollider.cs" />
     <Compile Include="Scene\Graphics\Renderer.cs" />
     <Compile Include="Scene\Graphics\SpriteRenderer.cs" />
+    <Compile Include="Util\AppVersion.cs" />
     <Compile Include="Util\Array2D.cs" />
     <Compile Include="Util\Bits.cs" />
     <Compile Include="Util\ColorExtensions.cs" />

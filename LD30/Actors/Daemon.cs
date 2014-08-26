@@ -4,10 +4,6 @@ using LD30.Components;
 using SFML.Audio;
 using SFML.Graphics;
 using SFML.Window;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LD30.Actors
 {
@@ -25,7 +21,7 @@ namespace LD30.Actors
         private float alphaByLighting;
 
         private float timeBeforeSound;
-        private FloatRange soundTime = new FloatRange(8f, 16f);
+        private FloatRange soundTime = new FloatRange(16f, 32f);
 
 		private float speed = 1f;
 

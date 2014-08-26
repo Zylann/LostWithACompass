@@ -1,12 +1,6 @@
 ﻿using Framework;
-using SFML.Audio;
 using SFML.Graphics;
 using SFML.Window;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LD30
 {
@@ -24,7 +18,7 @@ namespace LD30
         {
             base.OnEnter();
             Log.Debug("Game over");
-            AudioSystem.instance.Play(Assets.soundBuffers["death"]);
+            AudioSystem.instance.Play(Assets.soundBuffers["death"], 0.5f);
         }
 
         public override void OnInit()
@@ -51,6 +45,7 @@ namespace LD30
             rt.SetView(rt.DefaultView);
 
             rt.Draw(_text);
+			_game.playState.score.Render(rt);
         }
 
         public override void OnKeyPressed(KeyEventArgs e)

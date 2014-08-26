@@ -16,7 +16,7 @@ namespace Framework
 		private VertexArray _rtQuad;
 		private View _view;
 		private Sprite _cursor;
-		private Color _clearColor = new Color(8, 12, 14);
+		public Color clearColor = new Color(8, 12, 14);
 
 		private ApplicationSettings _settings;
 
@@ -26,6 +26,8 @@ namespace Framework
 		private DebugStat _debugDelta;
 
 		private TimeStepper _timeStepper;
+
+		public AppVersion version = new AppVersion();
 
 		public Application(Game game)
 		{
@@ -100,6 +102,8 @@ namespace Framework
 			_window.Closed += OnClosed;
 			_window.KeyPressed += OnKeyPressed;
 			_window.Resized += OnWindowResized;
+			_window.MouseButtonPressed += OnMouseButtonPressed;
+			_window.MouseButtonReleased += OnMouseButtonReleased;
 
 			// Initialize game
 			_game.Init();
@@ -141,7 +145,7 @@ namespace Framework
 		private void Render()
 		{
 			// Render the game
-			_rt.Clear(_clearColor);
+			_rt.Clear(clearColor);
 
 			_game.Render(_rt);
 
@@ -215,7 +219,7 @@ namespace Framework
 				_rt.Smooth = false;
 			}
 
-			_rt.Clear(_clearColor);
+			_rt.Clear(clearColor);
 			_rt.Display();
 
 			if (_rtQuad == null)
@@ -280,6 +284,17 @@ namespace Framework
 			}
 
 			_game.OnScreenResized(_rt.Size);
+		}
+
+		public void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
+		{
+			Log.Debug(e.X + ", " + e.Y);
+			_game.OnMouseButtonPressed(e);
+		}
+
+		public void OnMouseButtonReleased(object sender, MouseButtonEventArgs e)
+		{
+			_game.OnMouseButtonReleased(e);
 		}
 
 		#endregion

@@ -3,9 +3,6 @@ using LD30.Actors;
 using SFML.Audio;
 using SFML.Window;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LD30.Components
 {

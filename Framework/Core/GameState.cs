@@ -19,6 +19,12 @@ namespace Framework
 		public virtual void OnScreenResized(Vector2u newSize) { }
 
 		public abstract void OnKeyPressed(KeyEventArgs e);
+
+		public virtual void OnMouseButtonPressed(MouseButtonEventArgs e) { }
+		public virtual void OnMouseButtonReleased(MouseButtonEventArgs e) { }
+
 	}
 }
+
+
 

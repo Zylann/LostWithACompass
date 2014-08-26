@@ -1,12 +1,7 @@
 ﻿using Framework;
-using Framework.Pcg;
 using LD30.Components;
 using SFML.Graphics;
 using SFML.Window;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LD30.Actors
 {
