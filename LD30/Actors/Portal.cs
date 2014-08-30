@@ -26,7 +26,7 @@ namespace LD30.Actors
             _renderer.SetTexture("portal_lightmap", RenderMode.LIGHT_MAP);
             entity.AddComponent<BasicBody>().SetHitbox(new SFML.Graphics.FloatRect(-0.5f,-0.5f,1.0f,1.0f));
 
-            entity.AddComponent<AudioEmitter>();
+            entity.AddComponent<AudioEmitter>().Spatialize();
             entity.audio.Play("portal_loop", 1f, 1f, true);
 
             _renderer.color = new Color(255, 64, 64, 0);

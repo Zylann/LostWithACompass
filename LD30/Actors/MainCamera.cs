@@ -13,6 +13,7 @@ namespace LD30.Actors
             entity.AddComponent<Camera>().AddLayersUnder(ViewLayers.FOREGROUND).RemoveLayer(ViewLayers.BACKGROUND).RemoveLayer(ViewLayers.DAEMON_OBJECTS);
             entity.AddComponent<AudioListener>();
             _handler = entity.AddComponent<CameraHandler>();
+            _handler.followSpeed = 20;
             entity.camera.enableLighting = true;
             world.mainCamera = entity.camera;
         }

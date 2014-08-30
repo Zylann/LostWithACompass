@@ -70,6 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\AudioCategory.cs" />
+    <Compile Include="Audio\AudioParams.cs" />
     <Compile Include="Audio\AudioSystem.cs" />
     <Compile Include="Core\Application.cs" />
     <Compile Include="Core\ApplicationSettings.cs" />

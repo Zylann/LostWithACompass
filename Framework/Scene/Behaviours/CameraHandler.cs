@@ -8,6 +8,7 @@ namespace Framework
 	{
 		public Entity target;
 		private Camera _camera;
+        public float followSpeed = -1;
         public float shakeAmplitude;
 
 		public override void OnUpdate()
@@ -38,6 +39,11 @@ namespace Framework
 						targetBounds.Top + targetBounds.Height / 2f
 					);
 
+                    if(followSpeed > 0)
+                    {
+                        targetCenter = Mathf.Lerp(_camera.view.Center, targetCenter, followSpeed * world.delta);
+                    }
+
                     if(shakeAmplitude > 0.001f)
                     {
                         Vector2f shakeVector = new Vector2f(
@@ -47,7 +53,7 @@ namespace Framework
                         targetCenter += shakeVector;
                     }
 
-					_camera.view.Center = targetCenter;
+                    _camera.view.Center = targetCenter;
 				}
 			}
 		}

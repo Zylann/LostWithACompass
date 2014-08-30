@@ -51,7 +51,7 @@ namespace LD30
 
 			_me = new Text("A game by Marc Gilleron @ZylannMP3\nFor Ludum Dare 30 compo #ld48\n"+Application.instance.version, Game.font);
 			_me.Color = new Color(64, 128, 0);
-			_me.CharacterSize = 16;
+			_me.CharacterSize = 8;
 		}
 
 		public override void OnUpdate(int delta)
@@ -80,7 +80,7 @@ namespace LD30
 			rt.Draw(_title);
 			rt.Draw(_text);
 
-			_me.Position = new Vector2f(16, Application.instance.ScreenSize.Y - 70);
+			_me.Position = new Vector2f(200, Application.instance.ScreenSize.Y - 40);
 			rt.Draw(_me);
 
 		}

@@ -18,12 +18,14 @@ namespace Framework
 		public Stage stage;
 		public int major;
 		public int minor;
+        public int fix;
 
-		public AppVersion(Stage stage, int major, int minor=0)
+		public AppVersion(Stage stage, int major, int minor=0, int fix=0)
 		{
 			this.stage = stage;
 			this.major = major;
 			this.minor = minor;
+            this.fix = fix;
 		}
 
 		public override string ToString()
@@ -37,7 +39,10 @@ namespace Framework
 				case Stage.RELEASE: stageStr = ""; break;
 				default: break;
 			}
-			return stageStr + major + "." + minor;
+            string str = stageStr + major + "." + minor;
+            if(fix != 0)
+                str += "." + fix;
+			return str;
 		}
 	}
 }

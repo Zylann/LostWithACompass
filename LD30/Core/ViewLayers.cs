@@ -1,7 +1,7 @@
 ﻿
 namespace LD30
 {
-    public class ViewLayers
+    public static class ViewLayers
     {
         public const int BACKGROUND = 0;
         public const int TERRAIN = 1;

@@ -7,7 +7,9 @@ namespace Framework
 	public class AudioEmitter : Component
 	{
 		public Vector2f position;
-		private List<Sound> _sources = new List<Sound>();
+        public bool spatialized;
+
+        private List<Sound> _sources = new List<Sound>();
 
 		public override void OnCreate()
 		{
@@ -30,6 +32,12 @@ namespace Framework
 			// Release all finished sounds
 			_sources.RemoveAll(s => s.Status == SoundStatus.Stopped);
 		}
+
+        public AudioEmitter Spatialize()
+        {
+            spatialized = true;
+            return this;
+        }
 
 		public override void OnUpdate()
 		{
@@ -57,11 +65,11 @@ namespace Framework
 			}
 		}
 
-		public void Play(SoundBuffer buffer, float volume=1f, float pitch=1f, bool loop=false)
+        public void Play(SoundBuffer buffer, float volume = 1f, float pitch = 1f, bool loop = false, int category = AudioCategory.NONE)
 		{
 			Vector3f pos3d = new Vector3f(position.X, position.Y, 0);
 
-			Sound s = AudioSystem.instance.Play(buffer, pos3d, volume, pitch, loop);
+			Sound s = AudioSystem.instance.Play(buffer, pos3d, volume, pitch, loop, !spatialized, category);
 
 			if(s != null)
 			{
@@ -69,9 +77,9 @@ namespace Framework
 			}
 		}
 
-		public void Play(string soundName, float volume=1f, float pitch=1f, bool loop=false)
+		public void Play(string soundName, float volume=1f, float pitch=1f, bool loop=false, int category=AudioCategory.NONE)
 		{
-			Play(Assets.soundBuffers[soundName], volume, pitch, loop);
+			Play(Assets.soundBuffers[soundName], volume, pitch, loop, category);
 		}
 	}
 }

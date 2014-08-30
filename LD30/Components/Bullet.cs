@@ -20,13 +20,13 @@ namespace LD30.Components
             base.OnCreate();
 			entity.name = "bullet";
             entity.AddComponent<SpriteRenderer>().SetTexture("bullet").SetLayer(ViewLayers.OBJECTS);
-			entity.AddComponent<AudioEmitter>();
+			entity.AddComponent<AudioEmitter>().Spatialize();
         }
 
 		private void PlayHitSound()
 		{
 			string soundName = "hit" + Random.Range(1, 3 + 1);
-			AudioSystem.instance.Play(Assets.soundBuffers[soundName], new Vector3f(position.X, position.Y, 0f), 0.2f, Random.Range(0.8f, 1.2f));
+			AudioSystem.instance.Play(Assets.soundBuffers[soundName], new Vector3f(position.X, position.Y, 0f), 0.2f, Random.Range(0.8f, 1.2f), false, false);
 		}
 
 		private void PlayTraverseSound()

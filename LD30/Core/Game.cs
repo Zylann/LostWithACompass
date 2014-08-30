@@ -34,6 +34,8 @@ namespace LD30
             font = Assets.fonts["uni05_53"];
             fontBold = Assets.fonts["uni05_63"];
 
+            Assets.textures["flashcone3"].Smooth = true;
+
             application.SetCursor(Assets.textures["cursor"]);
 
             DebugOverlay.instance.SetFont(font, 8);

@@ -4,7 +4,7 @@ namespace Framework
 	public class ApplicationSettings
 	{
 		public bool debug = true;
-		public uint pixelSize = 2;
+		public uint pixelSize = 3;
 		public int minDeltaMs = 1000 / 70;
 		public int maxDeltaMs = 1000 / 30;
 		public bool pixelPerfect = true;

@@ -27,7 +27,7 @@ namespace LD30.Actors
             entity.AddComponent<SpriteRenderer>().SetTexture(Assets.textures["avatar"]).SetLayer(ViewLayers.OBJECTS);
             entity.AddComponent<BasicBody>().SetHitbox(new FloatRect(-0.3f, -0.3f, 0.6f, 0.6f)).SetMaxSpeed(20f);
             entity.AddComponent<FootstepsSound>().SetStep(1.5f).SetVars("step", 1, 8).SetVolume(0.25f);
-            entity.AddComponent<AudioEmitter>();
+            entity.AddComponent<AudioEmitter>().Spatialize();
             entity.AddComponent<SpriteOrderFromY>();
             entity.AddComponent<AudioListener>();
             world.avatar = this.entity;
@@ -72,10 +72,10 @@ namespace LD30.Actors
                 motor.Y -= 1f;
             }
 
-            if(Keyboard.IsKeyPressed(Keyboard.Key.Space))
-            {
-                flasher.Trigger();
-            }
+            //if(Keyboard.IsKeyPressed(Keyboard.Key.Space))
+            //{
+            //    flasher.Trigger();
+            //}
 
             return motor;
         }

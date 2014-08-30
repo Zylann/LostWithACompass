@@ -44,7 +44,7 @@ namespace LD30.Actors
             _renderer = entity.AddComponent<DaemonRenderer>();
             UpdateAppearance(((LDWorld)world).dimension);
 
-            entity.AddComponent<AudioEmitter>();
+            entity.AddComponent<AudioEmitter>().Spatialize();
 			entity.AddComponent<SpriteOrderFromY>();
 
             entity.AddComponent<BasicBody>().SetHitbox(new FloatRect(-0.5f,-0.5f,1f,1f));
@@ -74,6 +74,7 @@ namespace LD30.Actors
 
         public override void OnDimensionChange(int dimension)
         {
+            base.OnDimensionChange(dimension);
             UpdateAppearance(dimension);
         }
 
@@ -160,7 +161,7 @@ namespace LD30.Actors
             if(timeBeforeSound <= 0)
             {
                 timeBeforeSound = soundTime.Random();
-                entity.audio.Play("enemy" + Random.Range(1, 7 + 1), 1f, Random.Range(0.9f,1.1f));
+                entity.audio.Play("enemy" + Random.Range(1, 7 + 1), 1f, Random.Range(0.9f,1.1f), false, AudioCategories.ENEMIES);
             }
         }
 

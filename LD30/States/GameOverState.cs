@@ -8,6 +8,8 @@ namespace LD30
     {
         private Game _game;
         private Text _text;
+        private int _timeBeforeRestartAllowed;
+        private Text _restartText;
 
         public GameOverState(Game g)
         {
@@ -17,6 +19,7 @@ namespace LD30
         public override void OnEnter()
         {
             base.OnEnter();
+            _timeBeforeRestartAllowed = 1000;
             Log.Debug("Game over");
             AudioSystem.instance.Play(Assets.soundBuffers["death"], 0.5f);
         }
@@ -24,15 +27,23 @@ namespace LD30
         public override void OnInit()
         {
             base.OnInit();
+            
             _text = new Text("GAME OVER", Game.font);
             _text.Position = new Vector2f(20, 20);
             _text.CharacterSize = 32;
             _text.Color = new Color(255, 128, 0);
+
+            _restartText = new Text("Click to restart", Game.font);
+            _restartText.Position = _text.Position + new Vector2f(0f, 40f);
+            _restartText.CharacterSize = 8;
+            _restartText.Color = _text.Color;
         }
 
         public override void OnUpdate(int delta)
         {
             base.OnUpdate(delta);
+
+            _timeBeforeRestartAllowed -= delta;
         }
 
         public override void OnRender(RenderTarget rt)
@@ -46,6 +57,18 @@ namespace LD30
 
             rt.Draw(_text);
 			_game.playState.score.Render(rt);
+            if(_timeBeforeRestartAllowed < 0)
+            {
+                rt.Draw(_restartText);
+            }
+        }
+
+        public override void OnMouseButtonPressed(MouseButtonEventArgs e)
+        {
+            if(_timeBeforeRestartAllowed < 0)
+            {
+                _game.EnterState(_game.playState);
+            }
         }
 
         public override void OnKeyPressed(KeyEventArgs e)

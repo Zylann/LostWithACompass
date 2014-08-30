@@ -7,7 +7,10 @@ using System.Text;
 
 namespace Framework.Scene.Graphics
 {
-    public class SpriteBatchRenderer : Renderer
+    /// <summary>
+    /// Renderer displaying sprites through a SpriteBatch
+    /// </summary>
+    public abstract class SpriteBatchRenderer : Renderer
     {
         private SpriteBatch _spriteBatch;
 
@@ -37,9 +40,7 @@ namespace Framework.Scene.Graphics
 			_spriteBatch.Flush();
 		}
 
-        protected virtual void OnDrawSprites(SpriteBatch batch)
-        {
-
-        }
+        protected abstract void OnDrawSprites(SpriteBatch batch);
     }
 }
+

@@ -34,9 +34,6 @@ namespace LD30
             _overlay = new RectangleShape();
             _overlay.Texture = overlayTexture;
 
-            MainCamera camera = world.Spawn<MainCamera>();
-            world.map = world.SpawnEntity().AddComponent<Map>();
-
             healthBar = new HealthBar();
             healthBar.Init();
 
@@ -47,14 +44,13 @@ namespace LD30
 			score.Init();
         }
 
-        /// <summary>
-        /// THAT WAS A BAD IDEA
-        /// IF YOU HAVE TIME IT'S A LOT OF CODING FUN
-        /// NOT IN GAME JAMS
-        /// (anyway I'll try to fix issues by modifying my game design)
-        /// </summary>
         private void GenerateWorld()
         {
+            world.ClearEntities();
+
+            MainCamera camera = world.Spawn<MainCamera>();
+
+            world.map = world.SpawnEntity().AddComponent<Map>();
             world.map.Generate();
 
             // Avatar
@@ -99,7 +95,7 @@ namespace LD30
         {
             _acidSound = AudioSystem.instance.Play(Assets.soundBuffers["acid"], 0.2f);
             _acidSound.Loop = true;
-
+            Game.score = 0;
             GenerateWorld();
         }
 
@@ -110,8 +106,6 @@ namespace LD30
 
         public float CalculateCompassAngle()
         {
-            // TODO make the compass crazy for a small amount of time when we cross worlds
-
             Vector2f avatarPos = world.avatar.body.position;
 
             IEnumerable<Entity> portals = world.taggedEntities["Portal"];

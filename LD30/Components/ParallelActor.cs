@@ -27,7 +27,16 @@ namespace LD30
                 return false;
         }
 
-        public virtual void OnDimensionChange(int dimension) { }
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            dimension = ((LDWorld)world).dimension;
+        }
+
+        public virtual void OnDimensionChange(int dimension)
+        {
+            this.dimension = dimension;
+        }
 
         public virtual void Glimpse() { }
     }
