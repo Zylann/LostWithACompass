@@ -19,7 +19,7 @@ namespace LD30
             LD30.Game game = new LD30.Game();
 
             Application app = new Application(game);
-			app.version = new AppVersion(AppVersion.Stage.ALPHA, 1, 0, 1);
+			app.version = new AppVersion(AppVersion.Stage.ALPHA, 1, 0, 2);
 			app.clearColor = Color.Black;
 
             AudioSystem.instance.AddCategory(AudioCategories.COMMON);
