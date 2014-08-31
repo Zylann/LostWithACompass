@@ -79,7 +79,7 @@ namespace Framework
 
 				Render(target, RenderMode.BASE, camera.layerMask);
 
-				if(camera.enableLighting && world.lightSystem.enabled && !Keyboard.IsKeyPressed(Keyboard.Key.L))
+                if (camera.enableLighting && world.lightSystem != null && world.lightSystem.enabled && !Keyboard.IsKeyPressed(Keyboard.Key.L))
 				{
 					// Draw lights
 					world.lightSystem.Draw(target, camera.layerMask);
@@ -94,6 +94,7 @@ namespace Framework
 			{
 				if(((layerMask & (1<<(int)r.layer)) != 0) && r.GetMaterial(mode) != null)
 				{
+                    // TODO cull renderers
 					drawList.Add(r);
 				}
 			}
