@@ -75,7 +75,8 @@
     <Compile Include="Audio\AudioSystem.cs" />
     <Compile Include="Core\Application.cs" />
     <Compile Include="Core\ApplicationSettings.cs" />
-    <Compile Include="Core\Assets.cs" />
+    <Compile Include="Data\Assets.cs" />
+    <Compile Include="Data\ShaderProcessor.cs" />
     <Compile Include="Input\InputListener.cs" />
     <Compile Include="Core\Game.cs" />
     <Compile Include="Core\GameState.cs" />
