@@ -41,7 +41,7 @@ namespace Framework
 			}
             string str = stageStr + major + "." + minor;
             if(fix != 0)
-                str += "." + fix;
+                str += "f" + fix;
 			return str;
 		}
 	}
