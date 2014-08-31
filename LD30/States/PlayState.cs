@@ -50,6 +50,8 @@ namespace LD30
 
             MainCamera camera = world.Spawn<MainCamera>();
 
+            world.dimension = 0;
+
             world.map = world.SpawnEntity().AddComponent<Map>();
             world.map.Generate();
 
