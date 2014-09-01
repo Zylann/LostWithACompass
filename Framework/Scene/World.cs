@@ -151,9 +151,7 @@ namespace Framework
 
 		public void Render(RenderTarget rt)
 		{
-			// Draw entities
 			graphics.Render(rt);
-
 			debugLines.Display(rt);
 			debugLines.Flush();
 		}

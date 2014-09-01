@@ -47,6 +47,8 @@ namespace LD30.Actors
             entity.AddComponent<AudioEmitter>().Spatialize();
 			entity.AddComponent<SpriteOrderFromY>();
 
+            //entity.AddComponent<Light>().AddLayer(ViewLayers.TERRAIN).SetColor(new Color(64, 32, 16));
+
             entity.AddComponent<BasicBody>().SetHitbox(new FloatRect(-0.5f,-0.5f,1f,1f));
             entity.body.noClip = true;
             //entity.AddComponent<Light>().SetColor(new Color(255, 0, 255)).SetRadius(200).AddLayer(ViewLayers.TERRAIN);

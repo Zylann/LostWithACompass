@@ -29,6 +29,7 @@ namespace LD30.Actors
             _renderer.SetTexture("pixie_lightmap", RenderMode.LIGHT_MAP);
 
             entity.AddComponent<BasicBody>().SetHitbox(new FloatRect(16,16,32,32));
+            //entity.AddComponent<Light>().AddLayer(ViewLayers.TERRAIN).SetColor(new Color(16, 32, 64));
             entity.body.noClip = true;
             //entity.AddComponent<Light>().SetColor(new Color(255, 0, 255)).SetRadius(200).AddLayer(ViewLayers.TERRAIN);
 

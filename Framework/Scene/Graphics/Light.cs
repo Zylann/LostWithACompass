@@ -13,7 +13,7 @@ namespace Framework
 		public int layerMask;
 
 		private float _intensity = 1f;
-		private float _radius = 300f;
+		private float _radius = 250f;
 
 		//public RenderTexture filterMap;
 		//public RenderTexture lightMap;

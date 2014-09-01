@@ -4,7 +4,7 @@ using SFML.Graphics;
 using SFML.Window;
 using System.Collections.Generic;
 
-namespace LD30.Actors
+namespace LD30
 {
     public class Avatar : Behaviour
     {
@@ -98,7 +98,7 @@ namespace LD30.Actors
             entity.sprite.rotation = lookAngle;
             light.SetCookieRotation(lookAngle);
 
-            light.intensity = Random.Range(0.95f, 1f);
+            light.intensity = Random.Range(0.5f, 0.55f);
 
             float gbk = 1f-Mathf.Pow3(Mathf.Abs(hp-1));
             byte gb = (byte)(gbk * 255f);

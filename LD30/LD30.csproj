@@ -73,6 +73,7 @@
     <Compile Include="Actors\Avatar.cs" />
     <Compile Include="Actors\Daemon.cs" />
     <Compile Include="Actors\MainCamera.cs" />
+    <Compile Include="Components\Fake3DProjector.cs" />
     <Compile Include="Core\AudioCategories.cs" />
     <Compile Include="HUD\Compass.cs" />
     <Compile Include="Components\Bullet.cs" />
