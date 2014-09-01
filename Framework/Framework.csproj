@@ -99,6 +99,7 @@
     <Compile Include="Scene\Behaviours\SpriteOrderFromY.cs" />
     <Compile Include="Scene\Graphics\Camera.cs" />
     <Compile Include="Scene\Graphics\ParticleRenderer.cs" />
+    <Compile Include="Scene\Graphics\PolygonRenderer.cs" />
     <Compile Include="Scene\Graphics\RenderMode.cs" />
     <Compile Include="Scene\Graphics\RenderSystem.cs" />
     <Compile Include="Scene\Graphics\SpriteBatchRenderer.cs" />
